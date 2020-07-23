@@ -9,9 +9,74 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var email = ""
+    @State private var password = ""
+    @State private var themeTextField = Color.white
+      
     var body: some View {
-        Text("Hello, World!")
+        
+      VStack() {
+        Spacer()
+        
+        Image("influence")
+        .resizable()
+        .frame(width: 250, height: 250)
+        .clipShape(Circle())
+        .overlay(Circle().stroke(Color.white, lineWidth: 4))
+        .shadow(radius: 10)
+        .padding(.bottom, 50)
+        
+        HStack {
+            
+            Text("Bem Vindo")
+            .font(.title)
+            .fontWeight(.bold)
+                .foregroundColor(themeTextField)
+                .padding([.top, .leading, .bottom], 27.5)
+            Spacer()
+            
+        }
+        
+        VStack(alignment: .leading, spacing: 15) {
+          
+          TextField("Email", text: self.$email)
+            .padding()
+            .background(themeTextField)
+            .cornerRadius(5)
+            .shadow(radius: 10)
+                        
+          SecureField("Senha", text: self.$password)
+            .padding()
+            .background(themeTextField)
+            .cornerRadius(5)
+            .shadow(radius: 10)
+        }.padding([.leading, .trailing], 27.5)
+        
+        Spacer()
+        
+        Button(action: {}) {
+          Text("Entrar")
+            .font(.headline)
+            .foregroundColor(themeTextField)
+            .padding()
+            .frame(width: 300, height: 50)
+            .background(Color.green)
+            .cornerRadius(5)
+        }
+        
+        Spacer()
+        
+        Text("ou, cadastre-se")
+        .fontWeight(.bold)
+        .foregroundColor(Color.white)
+        
+        Spacer()
+        
+      }.background(
+      LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+        .edgesIgnoringSafeArea(.all))
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
