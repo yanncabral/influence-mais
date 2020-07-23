@@ -28,7 +28,7 @@ struct ContentView: View {
         
         HStack {
             
-            Text("Bem Vindo")
+            Text("Bem-vindo!")
             .font(.title)
             .fontWeight(.bold)
                 .foregroundColor(themeTextField)
