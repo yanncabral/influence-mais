@@ -90,32 +90,3 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
-
-//_______________________________
-
-
-//struct cadastro : View {
-//    
-//    var body : some View{
-//        
-//        Text("Cadastro 2").fontWeight(.heavy)
-//    }
-//}
-//
-//
-//struct page2 : View {
-//    
-//    var body : some View{
-//        
-//        Text("Hello From Page 2").fontWeight(.heavy).navigationBarTitle("Page 2", displayMode: .inline)
-//    }
-//}
-//
-//
-//struct page3 : View {
-//    
-//    var body : some View{
-//        
-//        Text("Hello From Page 3").fontWeight(.heavy).navigationBarTitle("Page 3", displayMode: .inline)
-//        }
-//    }
