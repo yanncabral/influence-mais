@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73A2701724CB55A300B78B65 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2701624CB55A300B78B65 /* SwiftUIView.swift */; };
 		AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */; };
 		AA2C070124C8B7660031AEF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C070024C8B7660031AEF9 /* SceneDelegate.swift */; };
 		AA2C070424C8B7660031AEF9 /* Influence_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA2C070224C8B7660031AEF9 /* Influence_.xcdatamodeld */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73A2701624CB55A300B78B65 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AA2C06FB24C8B7660031AEF9 /* Influence+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Influence+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA2C070024C8B7660031AEF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		AA2C06FD24C8B7660031AEF9 /* Influence+ */ = {
 			isa = PBXGroup;
 			children = (
+				73A2701624CB55A300B78B65 /* SwiftUIView.swift */,
 				AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */,
 				AA2C070024C8B7660031AEF9 /* SceneDelegate.swift */,
 				AA2C070524C8B7660031AEF9 /* ContentView.swift */,
@@ -153,6 +156,7 @@
 				AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */,
 				AA2C070624C8B7660031AEF9 /* ContentView.swift in Sources */,
 				AA2C070124C8B7660031AEF9 /* SceneDelegate.swift in Sources */,
+				73A2701724CB55A300B78B65 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
