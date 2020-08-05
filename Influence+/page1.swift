@@ -109,52 +109,70 @@ struct Page1: View {
         
         NavigationView {
             
-//            page1().navigationBarTitle("Page 1", displayMode: .inline)
-            
-             VStack {
-                    
-                    Image("gradienteInfluenceMais")
-                           .resizable()
-                NavigationLink(destination: Page2()){
-//                    Button(action: {page2()}) {
+            ZStack(alignment: .bottomTrailing){
+
+                Image("gradienteInfluenceMais")
+                    .resizable()
+                    .frame(width: 380, height: 800)
+                    .offset(y:-60)
+
+                
+                NavigationLink(destination: Page7()){
                     Text("Entrar")
-                        .font(.headline)
-            //            .foregroundColor(themeTextField)
+                        .font(Font.custom("Helvetica Neue", size: 18.0))
+                        .foregroundColor(Color.black)
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .padding(4)
                         .frame(width: 250, height: 50)
                         .background(Color.purple)
                         .cornerRadius(10)
-                    Spacer()
+                        .offset(x: -60, y:-100)
                     
-                    }
-                    }
+            }
         }
     }
 }
+    
 
-    //Page 2: Descubra
-    struct Page2 : View {
+//Page 2: Descubra
+    struct Page7 : View {
     
         var body : some View {
-        
-            VStack {
-                Text("Descubra").fontWeight(.heavy)
-               
+
+            NavigationView{
                 
-                
+                VStack(spacing:60){
+
                 NavigationLink(destination: Page3()) {
-                    
-                    Text("Go to page 3")
-                    
-                    
-//                    NavigationLink(destination: Page4())
+                        Text("SOBRE VOCÊ")
+//                        .bold()
+                        .font(Font.custom("Helvetica Neue", size: 24.0))
+                            .foregroundColor(Color.black)
+                            .padding(20)
+                        .frame(width: 300, height: 200)
+                        .background(Color.purple)
+                        .cornerRadius(30)
                 }
-            }
+                
+                NavigationLink(destination: Page4()){
+                        Text("MONTE SEU TIME")
+//                        .bold()
+                        .font(Font.custom("Helvetica Neue", size: 24.0))
+                        .foregroundColor(Color.black)
+                        .padding(20)
+                        .frame(width: 300, height: 200)
+                        .background(Color.purple)
+                        .cornerRadius(30)
+                }
+                
+            }.navigationBarTitle("Descubra", displayMode: .inline)
            
+        }
 }
-    
-    //Page 3: Sobre você
+   
+        
+        
+//Page 3: Sobre você
     struct Page3 : View {
         
         var body : some View {
@@ -162,7 +180,23 @@ struct Page1: View {
             VStack {
                  
                 Text("Sobre Você").fontWeight(.heavy)
+            } .navigationBarTitle("Sobre você", displayMode: .inline)
+        }
+        }
+         
+                
+    
+        
+//Page 4: Fotos
+    struct Page4 : View {
+                     
+        var body : some View {
+                     
+            VStack {
+                              
+                Text("Página não idealizada").fontWeight(.heavy)
             }
         }
-        }
     }
+    }
+}
