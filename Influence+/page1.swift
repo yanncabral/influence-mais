@@ -7,14 +7,6 @@
 //
 
 import SwiftUI
-
-struct HelloScreen : View {
-
-    var body : some View {
-        Text("Oi rs")
-    }
-        
-}
         
 struct MainSreen: View {
 
@@ -30,7 +22,7 @@ struct MainSreen: View {
             )
             .edgesIgnoringSafeArea(.all)
             
-            NavigationLink(destination: HelloScreen()){
+            NavigationLink(destination: Page2()){
                 
                 Text("Entrar")
                     .font(Font.custom("Helvetica Neue", size: 18.0))
@@ -41,17 +33,17 @@ struct MainSreen: View {
                     .background(Color.pink)
                     .cornerRadius(10)
                 
-            }
-            .padding(.vertical, 50.0)
+            }.padding(.vertical, 50.0)
 
           }
         }
     }
-}
+
     
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainSreen()
     }
+}
 }
 

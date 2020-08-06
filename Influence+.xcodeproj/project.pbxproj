@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733FCBD224DB2E7F00DFF192 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBD124DB2E7F00DFF192 /* Page2.swift */; };
+		733FCBD424DB2E8E00DFF192 /* Page3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBD324DB2E8E00DFF192 /* Page3.swift */; };
+		733FCBD624DB30CF00DFF192 /* Page4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBD524DB30CF00DFF192 /* Page4.swift */; };
 		73A2701724CB55A300B78B65 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2701624CB55A300B78B65 /* SwiftUIView.swift */; };
 		AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */; };
 		AA2C070124C8B7660031AEF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C070024C8B7660031AEF9 /* SceneDelegate.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		733FCBD124DB2E7F00DFF192 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
+		733FCBD324DB2E8E00DFF192 /* Page3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3.swift; sourceTree = "<group>"; };
+		733FCBD524DB30CF00DFF192 /* Page4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4.swift; sourceTree = "<group>"; };
 		73A2701624CB55A300B78B65 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AA2C06FB24C8B7660031AEF9 /* Influence+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Influence+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +70,11 @@
 				AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */,
 				AA2C070024C8B7660031AEF9 /* SceneDelegate.swift */,
 				AA2C070524C8B7660031AEF9 /* page1.swift */,
-				AA2C070724C8B7690031AEF9 /* Assets.xcassets */,
+				733FCBD124DB2E7F00DFF192 /* Page2.swift */,
+				733FCBD324DB2E8E00DFF192 /* Page3.swift */,
+				733FCBD524DB30CF00DFF192 /* Page4.swift */,
 				AA2C070C24C8B7690031AEF9 /* LaunchScreen.storyboard */,
+				AA2C070724C8B7690031AEF9 /* Assets.xcassets */,
 				AA2C070F24C8B7690031AEF9 /* Info.plist */,
 				AA2C070224C8B7660031AEF9 /* Influence_.xcdatamodeld */,
 				AA2C070924C8B7690031AEF9 /* Preview Content */,
@@ -155,8 +164,11 @@
 				AA2C070424C8B7660031AEF9 /* Influence_.xcdatamodeld in Sources */,
 				AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */,
 				AA2C070624C8B7660031AEF9 /* page1.swift in Sources */,
+				733FCBD424DB2E8E00DFF192 /* Page3.swift in Sources */,
 				AA2C070124C8B7660031AEF9 /* SceneDelegate.swift in Sources */,
 				73A2701724CB55A300B78B65 /* SwiftUIView.swift in Sources */,
+				733FCBD224DB2E7F00DFF192 /* Page2.swift in Sources */,
+				733FCBD624DB30CF00DFF192 /* Page4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
