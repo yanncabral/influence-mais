@@ -14,11 +14,12 @@ struct Page3: View {
     
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
             
             
             
         HStack{
+            
             Picker(selection: $selection, label: Text("")){
                 Text("Gênero").tag(0)
                 
@@ -34,14 +35,8 @@ struct Page3: View {
         .pickerStyle(SegmentedPickerStyle()).position(.init(x: 180, y: 150))
                 
                 
-            }
-            
-        
-//    };.navigationBarTitle("SOBRE VOCÊ")
-//            .foregroundColor(Color.black)
-//            .background(Color.black)
-            
-        
+//            }
+            .navigationBarTitle("SOBRE VOCÊ")
     }
 
 struct Page3_Previews: PreviewProvider {

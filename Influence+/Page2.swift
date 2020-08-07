@@ -12,41 +12,42 @@ struct Page2 : View {
     
     var body : some View {
         
-        NavigationView{
+        
             
             VStack(spacing:60){
-                
-                NavigationLink(destination: Page3()) {
-                    Text("SOBRE VOCÊ")
+
+                Text("Você ainda não tem influências.")
+                    //      .bold()
+                    .font(Font.custom("Helvetica Neue", size: 24.0))
+                    .foregroundColor(Color.black)
+                    .tabItem{
+                        VStack {
+                            Text("First")
+                        }
+                }
+
+
+                NavigationLink(destination: Page3()){
+                    Text("Montar")
                         //      .bold()
                         .font(Font.custom("Helvetica Neue", size: 24.0))
                         .foregroundColor(Color.black)
                         .padding(20)
-                        .frame(width: 300, height: 200)
+                        .frame(width: 300, height: 50)
                         .background(Color.purple)
-                        .cornerRadius(30)
-                }
-                
-                NavigationLink(destination: Page4()){
-                    Text("MONTE SEU TIME")
-                        //      .bold()
-                        .font(Font.custom("Helvetica Neue", size: 24.0))
-                        .foregroundColor(Color.black)
-                        .padding(20)
-                        .frame(width: 300, height: 200)
-                        .background(Color.purple)
-                        .cornerRadius(30)
-                }
-                    
+                        .cornerRadius(10)
+
+
+
                 .navigationBarTitle("Descubra", displayMode: .inline)
-                
-            }
-        }
-    }
+}
+}
+}
+
+struct Page2_Previews: PreviewProvider {
+    static var previews: some View {
+        Page2()
         
-        struct Page2_Previews: PreviewProvider {
-            static var previews: some View {
-                Page2()
-            }
-        }
+    }
+}
 }
