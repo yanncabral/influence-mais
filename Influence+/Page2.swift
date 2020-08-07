@@ -39,7 +39,7 @@ struct Page2 : View {
 
 
 
-                .navigationBarTitle("Descubra", displayMode: .inline)
+//                .navigationBarTitle("Descubra", displayMode: .inline)
 }
 }
 }

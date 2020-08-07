@@ -13,8 +13,6 @@ struct Page3: View {
     @State var selection = 0
     
     var body: some View {
-        
-//        NavigationView{
             
             
             
@@ -34,9 +32,7 @@ struct Page3: View {
             
         .pickerStyle(SegmentedPickerStyle()).position(.init(x: 180, y: 150))
                 
-                
-//            }
-            .navigationBarTitle("SOBRE VOCÊ")
+//            .navigationBarTitle("SOBRE VOCÊ")
     }
 
 struct Page3_Previews: PreviewProvider {

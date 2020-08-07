@@ -22,7 +22,7 @@ struct MainSreen: View {
             )
             .edgesIgnoringSafeArea(.all)
             
-            NavigationLink(destination: Page2()){
+            NavigationLink(destination: tabbar()){
                 
                 Text("Entrar")
                     .font(Font.custom("Helvetica Neue", size: 18.0))
