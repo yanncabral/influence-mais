@@ -27,7 +27,7 @@ struct Page2 : View {
                 }
 
 
-                NavigationLink(destination: Page3()){
+                NavigationLink(destination: SelectionView()){
                     Text("Montar")
                         //      .bold()
                         .font(Font.custom("Helvetica Neue", size: 24.0))
