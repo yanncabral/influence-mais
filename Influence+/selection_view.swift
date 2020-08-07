@@ -57,7 +57,7 @@ struct CardView: View {
 }
 
 struct SelectionView: View {
-    @ObservedObject var obs = Observer()
+    //@ObservedObject var obs = Observer()
     
     var body: some View {
         
