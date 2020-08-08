@@ -1,53 +1,44 @@
-//
-//  Page2.swift
-//  Influence+
-//
-//  Created by Mariana Resende de Paiva on 05/08/20.
-//  Copyright © 2020 Yann Cabral. All rights reserved.
-//
-
 import SwiftUI
 
 struct Page2 : View {
-    
+
     var body : some View {
-        
-        
-            
-            VStack(spacing:60){
 
-                Text("Você ainda não tem influências.")
-                    //      .bold()
-                    .font(Font.custom("Helvetica Neue", size: 24.0))
-                    .foregroundColor(Color.black)
-                    .tabItem{
-                        VStack {
-                            Text("First")
-                        }
-                }
 
+
+        VStack(spacing:60){
+
+            Text("Você ainda não tem influências.")
+                .font(.custom("Noto Sans", size:36))
+                .bold()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.black)
+                .padding()
+
+
+            VStack{
 
                 NavigationLink(destination: SelectionView()){
                     Text("Montar")
-                        //      .bold()
-                        .font(Font.custom("Helvetica Neue", size: 24.0))
-                        .foregroundColor(Color.black)
-                        .padding(20)
-                        .frame(width: 300, height: 50)
-                        .background(Color.purple)
-                        .cornerRadius(10)
-
-
-
-//                .navigationBarTitle("Descubra", displayMode: .inline)
-}
-}
-}
-
-struct Page2_Previews: PreviewProvider {
-    static var previews: some View {
-        Page2()
-        
+                        .frame(width: 300, height: 40)
+                        .font(.custom("Noto Sans", size: 24.0))
+                        .cornerRadius(30)
+                        .foregroundColor(.black)
+                        .padding(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.black, lineWidth: 1)
+                    )
+                }
+            }
+        }
     }
-}
+
+
+    struct Page2_Previews: PreviewProvider {
+        static var previews: some View {
+            Page2()
+
+        }
+    }
 }

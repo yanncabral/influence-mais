@@ -10,9 +10,9 @@ import SwiftUI
 
 struct Page4: View {
     var body: some View {
-        
+
         VStack {
-            
+
             Text("Página não idealizada").fontWeight(.heavy)
         }
         .navigationBarTitle("Descubra", displayMode: .inline)

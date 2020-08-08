@@ -12,52 +12,57 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 
 struct CardView: View {
-    public var image = "http://commons.wikimedia.org/wiki/Special:FilePath/Premios%20Goya%202018%20-%20Bibiana%20Fern%C3%A1ndez.jpg"
-    public var name = "Bibiana Fernández Chica"
-    public var occupation = "television presenter"
-    public var sexuality = "lesbian"
+    
+    @ObservedObject var data: Observer
+    var id: Int
+    
+    func select(){
+        data.getFaces(clicked_id: data.data[id].id)
+    }
     
     var body: some View {
         
-        VStack {
-            AnimatedImage(url: URL(string: image))
-                .resizable()
-                .clipShape(Circle())
-                .padding()
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(name)
-//                        .font(.title)
-//                        .fontWeight(.black)
-                        .foregroundColor(.primary)
-                        .lineLimit(3)
+        Button(action: select )
+        {
+            VStack {
+                ZStack (alignment: .center){
+                    Text("paciencia...")
                     
-                    Text(occupation.uppercased())
+                    AnimatedImage(url: URL(string: data.data[id].image))
+                        .resizable()
+                    
+                }
+                
+                
+                VStack(alignment: .leading) {
+                    Text(data.data[id].name)
+                        .foregroundColor(.primary)
+                    //                      .lineLimit(3)
+                    
+                    Text(data.data[id].occupation.uppercased())
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 .layoutPriority(100)
                 
                 
+                Spacer()
+                
             }
+            .background(Color.white)
+            .cornerRadius(15)
+            .shadow(color: Color.black.opacity(0.3), radius: 7, x: 0, y: 2)
             .padding()
-            Spacer()
         }
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.3), lineWidth: 1)
-                        .shadow(radius: 10)
-        )
-            .padding()
-        
     }
-    
 }
 
 struct SelectionView: View {
-    //@ObservedObject var obs = Observer()
+    var obs = Observer()
+    
+    func select(){
+        obs.getFaces(clicked_id: nil)
+    }
     
     var body: some View {
         
@@ -70,20 +75,25 @@ struct SelectionView: View {
                 .fontWeight(.black)
                 .foregroundColor(.primary)
                 .lineLimit(3)
-                .padding()
+                .padding(.horizontal)
+                .padding(.bottom, 30.0)
             
-            HStack {
-                CardView()
-                CardView()
-            }
-            HStack {
-                CardView()
-                CardView()
-            }
+            VStack{
+                
+                HStack {
+                    CardView(data: obs, id: 0)
+                    CardView(data: obs, id: 1)
+                }
+                
+                HStack (){
+                    CardView(data: obs, id: 2)
+                    CardView(data: obs, id: 3)
+                }
+            }.padding(.bottom, 50)
             
-            Spacer()
-            
-            Text("Completar")
+            Button(action: select)
+            {
+                Text("PULAR")
                 .font(Font.custom("Noto Sans", size: 18.0))
                 .foregroundColor(Color.white)
                 .multilineTextAlignment(.center)
@@ -92,39 +102,56 @@ struct SelectionView: View {
                 .background(Color.black)
                 .cornerRadius(10)
                 .shadow(radius: 10)
+            }
             
         }
-        
-        
     }
 }
 
-struct FaceData : Identifiable{
-    public var name: String
-    public var image: String
-    public var id: Int
+struct DataModel : Identifiable {
+    var id: Int
+    var name: String
+    var occupation: String
+    var image: String
 }
-
 
 class Observer : ObservableObject{
-    @Published var dataFromNetworking = [FaceData]()
+    
+    @Published var data = [DataModel]()
+    var ids = [Int]()
     
     init() {
-        getFaces()
+        getFaces(clicked_id: nil)
+//        getFaces()
     }
     
-    func getFaces()
+    func getFaces(clicked_id: Int?)
     {
-        AF.request("http://127.0.0.1:8000/", method: .post, parameters: ["ids": []], encoding: JSONEncoding.default)
+        
+        if (clicked_id != nil) {
+            ids.append(clicked_id!)
+        }
+        AF.request("https://influence-plus.herokuapp.com/",
+                   method: .post,
+                   parameters: ["ids": self.ids],
+                   encoding: JSONEncoding.default)
+            
             .responseJSON  { response in
                 switch response.result {
                 case .success(let value):
+                    self.data.removeAll()
                     let json = JSON(value)
+                    
                     for item in json["result"].arrayValue {
-                        print(item["id"].intValue)
-                        print(item["name"].stringValue)
-                        print(item["image"].stringValue)
+                        self.data.append(
+                            DataModel(
+                                id: item["id"].intValue,
+                                name: item["name"].stringValue,
+                                occupation: item["occupation"].stringValue,
+                                image: item["image"].stringValue)
+                        )
                     }
+                    
                 case .failure(let error):
                     print(error)
                 }

@@ -9,29 +9,29 @@
 import SwiftUI
 
 struct Page3: View {
-    
+
     @State var selection = 0
-    
+
     var body: some View {
-            
-            
-            
+
+
+
         HStack{
-            
+
             Picker(selection: $selection, label: Text("")){
                 Text("Gênero").tag(0)
-                
+
                 Text("Etnia").tag(1)
-                
+
                 Text("Área").tag(2)
-                    
+
                 }
-                
+
             }
-            
-            
+
+
         .pickerStyle(SegmentedPickerStyle()).position(.init(x: 180, y: 150))
-                
+
 //            .navigationBarTitle("SOBRE VOCÊ")
     }
 
