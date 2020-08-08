@@ -139,6 +139,9 @@ class Observer : ObservableObject{
             .responseJSON  { response in
                 switch response.result {
                 case .success(let value):
+                    
+                    //print("A resposta: ", value)
+                    
                     self.data.removeAll()
                     let json = JSON(value)
                     
