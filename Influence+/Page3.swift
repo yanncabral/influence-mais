@@ -1,5 +1,5 @@
 //
-//  Page3.swift
+//  Page4.swift
 //  Influence+
 //
 //  Created by Mariana Resende de Paiva on 05/08/20.
@@ -9,36 +9,46 @@
 import SwiftUI
 
 struct Page3: View {
-
-    @State var selection = 0
-
+    
+    var tutors: [Tutor] = []
+    
     var body: some View {
-
-
-
-        HStack{
-
-            Picker(selection: $selection, label: Text("")){
-                Text("Gênero").tag(0)
-
-                Text("Etnia").tag(1)
-
-                Text("Área").tag(2)
-
-                }
-
+        NavigationView {
+            List(tutors) {tutor in
+                TutorCell(tutor: tutor)
             }
-
-
-        .pickerStyle(SegmentedPickerStyle()).position(.init(x: 180, y: 150))
-
-//            .navigationBarTitle("SOBRE VOCÊ")
+            .navigationBarTitle(Text("Contatos"))
+        }
     }
+}
 
+#if DEBUG
 struct Page3_Previews: PreviewProvider {
     static var previews: some View {
-        Page3()
+        Page3(tutors: testData)
     }
 }
 
+#endif
+
+
+struct TutorCell: View {
+    let tutor: Tutor
+    var body: some View {
+        
+        return NavigationLink(destination: Contacts(name: tutor.name, headline: tutor.headline, bio: tutor.bio)) {
+            Image(tutor.imageName)
+                .cornerRadius(40)
+            VStack(alignment: .leading) {
+                Text(tutor.name)
+                Text(tutor.headline)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+            }
+            
+        }
+    }
+    
+    
 }
+
