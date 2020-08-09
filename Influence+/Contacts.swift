@@ -1,49 +1,54 @@
 //
-//  Contacts.swift
+//  Page4.swift
 //  Influence+
 //
-//  Created by Mariana Resende de Paiva on 09/08/20.
+//  Created by Mariana Resende de Paiva on 05/08/20.
 //  Copyright © 2020 Yann Cabral. All rights reserved.
 //
 
 import SwiftUI
 
 struct Contacts: View {
-
-    var name: String
-    var headline: String
-    var bio: String
-
+    
+    var tutors: [Tutor] = []
+    
     var body: some View {
-        VStack{
-            Image(name)
-            .clipShape(Circle())
-                .overlay(
-                    Circle().stroke(Color.orange, lineWidth: 4)
-            )
-                .shadow(radius: 10)
-            
-            Text(name)
-                .font(.title)
-            
-            Text(headline)
-                .font(.subheadline)
-            
-            Divider()
-            
-            Text(bio)
-                .font(.headline)
-                .multilineTextAlignment(.center)
-            .lineLimit(50)
-            
-        }.padding().navigationBarTitle(Text(name), displayMode: .inline)
+        NavigationView {
+            List(tutors) {tutor in
+                TutorCell(tutor: tutor)
+            }
+            .navigationBarTitle(Text("Contatos"))
+        }
     }
 }
 
 #if DEBUG
-struct Contacts_Previews: PreviewProvider {
+struct Page3_Previews: PreviewProvider {
     static var previews: some View {
-        Contacts(name: "Simon Ng", headline: "Founder of AppCoda", bio: "Founder of AppCoda. Author of multiple iOS programming books including Beginning iOS 12 Programming with Swift and Intermediate iOS 12 Programming with Swift. iOS Developer and Blogger.")
+        Contacts(tutors: testData)
     }
 }
+
 #endif
+
+
+struct TutorCell: View {
+    let tutor: Tutor
+    var body: some View {
+        
+        return NavigationLink(destination: Contactsinfo(name: tutor.name, headline: tutor.headline, bio: tutor.bio)) {
+            Image(tutor.imageName)
+                .cornerRadius(40)
+            VStack(alignment: .leading) {
+                Text(tutor.name)
+                Text(tutor.headline)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+            }
+            
+        }
+    }
+    
+    
+}
+

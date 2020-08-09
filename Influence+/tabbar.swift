@@ -12,7 +12,7 @@ struct Tabbar: View {
             }
 
 
-            Page3()
+            Contacts()
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Perfil")
