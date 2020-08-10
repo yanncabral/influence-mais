@@ -8,18 +8,18 @@ struct Page2 : View {
 
         VStack(spacing:60){
 
-            Text("Você ainda não tem influências.")
+            Text("Descubra novas influências profissionais.")
                 .font(.custom("Noto Sans", size:36))
                 .bold()
                 .multilineTextAlignment(.center)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.purple)
                 .padding()
 
 
             VStack{
 
                 NavigationLink(destination: SelectionView()){
-                    Text("Montar")
+                    Text("Começar teste")
                         .frame(width: 300, height: 40)
                         .font(.custom("Noto Sans", size: 24.0))
                         .cornerRadius(30)

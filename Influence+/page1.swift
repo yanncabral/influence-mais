@@ -12,12 +12,15 @@ struct Page1: View {
                 VStack() {
 
                     VStack{
-                        Text("Influencie+")
-                            .font(.custom("Noto Sans", size: 62))
-                            .fontWeight(.bold)
+                        Image("inspiri-se")
+//                            .font(.custom("Noto Sans", size: 62))
+//                            .fontWeight(.bold)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
                         Text("Encontre profissionais que te inspiram.")
                             .font(.custom("Noto Sans", size: 20))
-
+                            .foregroundColor(Color.purple
+                        )
 
                     }
 
@@ -31,7 +34,7 @@ struct Page1: View {
                         .multilineTextAlignment(.center)
                         .padding(4)
                         .frame(width: 270, height: 60)
-                        .background(Color.black)
+                        .background(Color.purple)
                         .cornerRadius(10)
 
                 }.padding(.vertical, 50.0)
