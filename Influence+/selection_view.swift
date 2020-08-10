@@ -12,34 +12,29 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 
 struct CardView: View {
-    
-    @ObservedObject var data: Observer
-    var id: Int
-    
-    func select(){
-        data.getFaces(clicked_id: data.data[id].id)
-    }
+    var onClick: (Int?) -> Void
+    var item: DataModel
     
     var body: some View {
         
-        Button(action: select )
-        {
+        Button(action: {
+            self.onClick(self.item.id)
+        }){
             VStack {
                 ZStack (alignment: .center){
-                    Text("paciencia...")
+                    Text("carregando foto...")
                     
-                    AnimatedImage(url: URL(string: data.data[id].image))
+                    AnimatedImage(url: URL(string: item.image))
                         .resizable()
                     
                 }
                 
                 
                 VStack(alignment: .leading) {
-                    Text(data.data[id].name)
+                    Text(item.name)
                         .foregroundColor(.primary)
-                    //                      .lineLimit(3)
                     
-                    Text(data.data[id].occupation.uppercased())
+                    Text(item.occupation.uppercased())
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -52,18 +47,49 @@ struct CardView: View {
             .background(Color.white)
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.3), radius: 7, x: 0, y: 2)
+            //        .padding()
+            
+        }
+    }
+}
+
+struct CardGrid : View {
+    @ObservedObject var obs: Observer
+    
+    func select(){
+        obs.getFaces(clicked_id: nil)
+    }
+    
+    var body: some View {
+        
+        ZStack (alignment: .center){
+
+            VStack {
+                
+                if self.obs.data.count == 0 {
+                        Spacer()
+                        Text("procurando...")
+                        Spacer()
+                } else {
+                    ForEach( 0..<self.obs.data.count/2, id: \.self) { index in
+                        HStack {
+                            CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2])
+                            CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2 + 1])
+                        }
+                        .padding(.top)
+                        .animation(.default)
+                        
+                    }
+                }
+            }
             .padding()
+            .animation(.default)
         }
     }
 }
 
 struct SelectionView: View {
     var obs = Observer()
-    
-    func select(){
-        obs.getFaces(clicked_id: nil)
-    }
-    
     var body: some View {
         
         VStack {
@@ -78,33 +104,28 @@ struct SelectionView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 30.0)
             
-            VStack{
-                
-                HStack {
-                    CardView(data: obs, id: 0)
-                    CardView(data: obs, id: 1)
-                }
-                
-                HStack (){
-                    CardView(data: obs, id: 2)
-                    CardView(data: obs, id: 3)
-                }
-            }.padding(.bottom, 50)
+            CardGrid(obs: self.obs)
             
-            Button(action: select)
+            Button(action: {
+                self.obs.getFaces(clicked_id: nil)
+            })
             {
-                Text("PULAR")
-                .font(Font.custom("Noto Sans", size: 18.0))
-                .foregroundColor(Color.white)
-                .multilineTextAlignment(.center)
-                .padding(.vertical, 4)
-                .frame(width: 250, height: 50)
-                .background(Color.black)
-                .cornerRadius(10)
-                .shadow(radius: 10)
-            }
+                HStack{
+                    Spacer()
+                    Text("PULAR")
+                                        .font(Font.custom("Noto Sans", size: 18.0))
+                                        .foregroundColor(Color.white)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.vertical, 10)
+                    Spacer()
+                }
+                
+                }
+            .background(Color.black)
+            .cornerRadius(10)
+            .padding(.horizontal)
             
-        }
+        }.navigationBarTitle("Monte seu mapa")
     }
 }
 
@@ -122,16 +143,17 @@ class Observer : ObservableObject{
     
     init() {
         getFaces(clicked_id: nil)
-//        getFaces()
+        //        getFaces()
     }
     
     func getFaces(clicked_id: Int?)
     {
-        
+        self.data.removeAll()
         if (clicked_id != nil) {
             ids.append(clicked_id!)
         }
-        AF.request("https://influence-plus.herokuapp.com/",
+                AF.request("https://influence-plus.herokuapp.com/",
+//        AF.request("http://127.0.0.1:8000/",
                    method: .post,
                    parameters: ["ids": self.ids],
                    encoding: JSONEncoding.default)
@@ -142,7 +164,6 @@ class Observer : ObservableObject{
                     
                     //print("A resposta: ", value)
                     
-                    self.data.removeAll()
                     let json = JSON(value)
                     
                     for item in json["result"].arrayValue {
