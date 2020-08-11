@@ -14,7 +14,7 @@ struct SelectionView: View {
         
         VStack {
             
-            Spacer()
+//            Spacer()
             Text("Escolha o profissional que você mais se identifica.")
                 .font(Font.custom("Noto Sans", size: 18.0))
                 .fontWeight(.black)
