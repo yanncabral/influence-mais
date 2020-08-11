@@ -11,8 +11,6 @@
 		733FCBD424DB2E8E00DFF192 /* SegmentedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBD324DB2E8E00DFF192 /* SegmentedViewPage.swift */; };
 		733FCBD624DB30CF00DFF192 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBD524DB30CF00DFF192 /* Contacts.swift */; };
 		733FCBF824DDDC4000DFF192 /* tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCBF724DDDC4000DFF192 /* tabbar.swift */; };
-		733FCC0224E060A200DFF192 /* Tutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCC0124E060A200DFF192 /* Tutor.swift */; };
-		733FCC0424E060AA00DFF192 /* Tutor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733FCC0324E060AA00DFF192 /* Tutor.xcassets */; };
 		733FCC0624E0643B00DFF192 /* Contactsinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FCC0524E0643B00DFF192 /* Contactsinfo.swift */; };
 		73A2701724CB55A300B78B65 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2701624CB55A300B78B65 /* SwiftUIView.swift */; };
 		AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C06FE24C8B7660031AEF9 /* AppDelegate.swift */; };
@@ -34,8 +32,6 @@
 		733FCBD324DB2E8E00DFF192 /* SegmentedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewPage.swift; sourceTree = "<group>"; };
 		733FCBD524DB30CF00DFF192 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		733FCBF724DDDC4000DFF192 /* tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbar.swift; sourceTree = "<group>"; };
-		733FCC0124E060A200DFF192 /* Tutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tutor.swift; path = "../../../../../../../Downloads/Resources-3/Tutor.swift"; sourceTree = "<group>"; };
-		733FCC0324E060AA00DFF192 /* Tutor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tutor.xcassets; path = "../../../../../../../Downloads/Resources-3/Tutor.xcassets"; sourceTree = "<group>"; };
 		733FCC0524E0643B00DFF192 /* Contactsinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactsinfo.swift; sourceTree = "<group>"; };
 		73A2701624CB55A300B78B65 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AA2C06FB24C8B7660031AEF9 /* Influence+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Influence+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,11 +88,9 @@
 				733FCBD124DB2E7F00DFF192 /* Page2.swift */,
 				733FCC0524E0643B00DFF192 /* Contactsinfo.swift */,
 				733FCBD524DB30CF00DFF192 /* Contacts.swift */,
-				733FCC0124E060A200DFF192 /* Tutor.swift */,
 				733FCBD324DB2E8E00DFF192 /* SegmentedViewPage.swift */,
 				AA2C070C24C8B7690031AEF9 /* LaunchScreen.storyboard */,
 				AA2C070724C8B7690031AEF9 /* Assets.xcassets */,
-				733FCC0324E060AA00DFF192 /* Tutor.xcassets */,
 				AA2C070F24C8B7690031AEF9 /* Info.plist */,
 				AA2C070224C8B7660031AEF9 /* Influence_.xcdatamodeld */,
 				AA2C070924C8B7690031AEF9 /* Preview Content */,
@@ -183,7 +177,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733FCC0424E060AA00DFF192 /* Tutor.xcassets in Resources */,
 				AA2C070E24C8B7690031AEF9 /* LaunchScreen.storyboard in Resources */,
 				AA2C070B24C8B7690031AEF9 /* Preview Assets.xcassets in Resources */,
 				AA2C070824C8B7690031AEF9 /* Assets.xcassets in Resources */,
@@ -198,7 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2C070424C8B7660031AEF9 /* Influence_.xcdatamodeld in Sources */,
-				733FCC0224E060A200DFF192 /* Tutor.swift in Sources */,
 				AA2C06FF24C8B7660031AEF9 /* AppDelegate.swift in Sources */,
 				AA2C070624C8B7660031AEF9 /* page1.swift in Sources */,
 				733FCBD424DB2E8E00DFF192 /* SegmentedViewPage.swift in Sources */,
