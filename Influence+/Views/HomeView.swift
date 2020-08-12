@@ -10,7 +10,7 @@ struct Page1: View {
             VStack() {
                 
                 VStack() {
-                
+                    
                     
                     VStack{
                         
@@ -18,6 +18,7 @@ struct Page1: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding(20)
+                        
                         Text("Encontre profissionais que te inspiram.")
                             .font(.custom("Noto Sans", size: 20))
                             .foregroundColor(Color.purple
@@ -38,7 +39,8 @@ struct Page1: View {
                         .background(Color.purple)
                         .cornerRadius(10)
                     
-                }.padding(.vertical, 50.0)
+                }
+                .padding(.vertical, 50.0)
                 
             }
         }

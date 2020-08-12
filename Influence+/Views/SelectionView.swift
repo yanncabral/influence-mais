@@ -10,11 +10,18 @@ import SwiftUI
 
 struct SelectionView: View {
     @ObservedObject var obs = RemoteData()
+    
     var body: some View {
         
         VStack {
             
-//            Spacer()
+            if self.obs.data.count != 10 {
+                
+            ProgressBar(
+                currentStep: self.obs.count,
+                progressMax: 7)
+                .padding()
+            
             Text("Escolha o profissional que você mais se identifica.")
                 .font(Font.custom("Noto Sans", size: 18.0))
                 .fontWeight(.black)
@@ -25,9 +32,9 @@ struct SelectionView: View {
             
                 CardGrid(obs: self.obs)
             
-            
             Button(action: {
                 self.obs.getFaces(clicked_id: nil)
+                
             })
             {
                 HStack{
@@ -45,9 +52,20 @@ struct SelectionView: View {
             .cornerRadius(10)
             .padding(.horizontal)
             Spacer()
+            }
+            else {
+//                Text("Seu Mapa")
+//                .bold()
+//                    .font(.title)
+//                    .fontWeight(.black)
+//                .foregroundColor(.primary)
+//                .lineLimit(3)
+//                    .padding([.top, .horizontal])
+                CardGrid(obs: self.obs)
+                .navigationBarTitle("Seu Mapa")
+            }
             
         }
-//        .navigationBarTitle("Monte seu mapa")
     }
 }
 

@@ -21,10 +21,10 @@ class RemoteData : ObservableObject{
     
     @Published var data = [PersonModel]()
     var ids = [Int]()
+    @Published var count: Int = 0;
     
     init() {
         getFaces(clicked_id: nil)
-        //        getFaces()
     }
     
     func getFaces(clicked_id: Int?)
@@ -33,8 +33,8 @@ class RemoteData : ObservableObject{
         if (clicked_id != nil) {
             ids.append(clicked_id!)
         }
-                AF.request("https://influence-plus.herokuapp.com/",
-//        AF.request("http://127.0.0.1:8000/",
+//                AF.request("https://influence-plus.herokuapp.com/",
+        AF.request("http://127.0.0.1:8000/",
                    method: .post,
                    parameters: ["ids": self.ids],
                    encoding: JSONEncoding.default)
@@ -43,9 +43,9 @@ class RemoteData : ObservableObject{
                 switch response.result {
                 case .success(let value):
                     
-                    //print("A resposta: ", value)
-                    
                     let json = JSON(value)
+                    
+//                    print("A resposta: ", json.dictionaryValue.keys)
                     
                     for item in json["result"].arrayValue {
                         self.data.append(
@@ -60,6 +60,8 @@ class RemoteData : ObservableObject{
                 case .failure(let error):
                     print(error)
                 }
+                
         }
+        self.count = (self.ids.count + 1)
     }
 }

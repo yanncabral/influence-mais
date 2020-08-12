@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct CardView: View {
     var onClick: (Int?) -> Void
     var item: PersonModel
+    var clickable: Bool = true
     
     var body: some View {
         
@@ -19,13 +20,23 @@ struct CardView: View {
             self.onClick(self.item.id)
         }){
             VStack {
-                ZStack (alignment: .center){
-                    Text("carregando foto...")
-                    
-                    AnimatedImage(url: URL(string: item.image))
+                
+                if (self.clickable)
+                {
+                    AnimatedImage(url: URL(string: self.item.image))
                         .resizable()
-                    
+                        .placeholder(content: {
+                            Text("carregando foto...")
+                        })
+                } else {
+                    AnimatedImage(url: URL(string: self.item.image))
+                        .resizable()
+                        .placeholder(content: {
+                            Text("carregando foto...")
+                        })
+                        .frame(minHeight: 240)
                 }
+                
                 
                 VStack(alignment: .leading) {
                     Text(item.name)
@@ -35,7 +46,7 @@ struct CardView: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
-                .layoutPriority(100)
+                //                .layoutPriority(100)
                 
                 Spacer()
                 
@@ -43,9 +54,7 @@ struct CardView: View {
             .background(Color.white)
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.3), radius: 7, x: 0, y: 2)
-            //        .padding()
-            
-        }
+        }.disabled(!self.clickable)
     }
 }
 
@@ -66,25 +75,62 @@ struct CardGrid : View {
                     Spacer()
                     Text("procurando...")
                     Spacer()
-                } else {
-                    
-                    ForEach( 0..<self.obs.data.count/2, id: \.self) { index in
-                        HStack {
-                            CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2])
-                            CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2 + 1])
+                } else if self.obs.data.count == 4 {
+                    VStack (spacing: 10){
+                        //                        Spacer()
+                        ForEach( 0..<self.obs.data.count/2, id: \.self) { index in
+                            HStack {
+                                CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2])
+                                CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2 + 1])
+                            }
+                            .animation(.default)
+                            .padding(.horizontal)
                         }
-                        .animation(.default)
-                        
+                        //                       Spacer()
+                    }
+                    //                    .padding()
+                    
+                }  else {
+                    ScrollView {
+                        VStack(spacing: 10){
+                            ForEach( 0..<self.obs.data.count/2, id: \.self) { index in
+                                HStack {
+                                    CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2], clickable: false)
+                                    CardView(onClick: self.obs.getFaces, item: self.obs.data[index * 2 + 1], clickable: false)
+                                }
+                                .animation(.default)
+                            }
+                        }
+                        .padding()
+                        Button(action: {
+                            //                            self.obs.getFaces(clicked_id: nil)
+                            
+                        })
+                        {
+                            HStack{
+                                Spacer()
+                                Text("COMPARTILHAR")
+                                    .font(Font.custom("Noto Sans", size: 18.0))
+                                    .foregroundColor(Color.white)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.vertical, 10)
+                                Spacer()
+                            }
+                            
+                        }
+                        .background(Color.black)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                     }
                 }
             }
-            .padding()
-            .animation(.default)
+            //        .padding()
+            //            .animation(.default)
         }
     }
 }
-    
-    
+
+
 struct CardGrid_Previews: PreviewProvider {
     static var previews: some View {
         SelectionView()
