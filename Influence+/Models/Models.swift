@@ -33,8 +33,8 @@ class RemoteData : ObservableObject{
         if (clicked_id != nil) {
             ids.append(clicked_id!)
         }
-//                AF.request("https://influence-plus.herokuapp.com/",
-        AF.request("http://127.0.0.1:8000/",
+                AF.request("https://influence-plus.herokuapp.com/",
+//        AF.request("http://127.0.0.1:8000/",
                    method: .post,
                    parameters: ["ids": self.ids],
                    encoding: JSONEncoding.default)
